@@ -1,6 +1,138 @@
 'use strict';
 
 
+// const arr = [1, 2, 3];
+// console.dir(arr.__proto__)
+// const soldier = {
+//     health: 400,
+//     armor: 100,
+//     sayHello() {
+//         console.log('hello');
+//     }
+// };
+// const john = Object.create(soldier)
+// Object.setPrototypeOf(john, soldier)
+// john.__proto__ = soldier;
+// console.log(john.sayHello());
+
+
+// const array = ['a', 'b'];
+// const newArray = [...array];
+// newArray[0] = 'ddddd';
+// console.log(array);
+// console.log(newArray);
+// const oldArray = ['a', 'b', 'c'];
+// const newArray = [...oldArray];
+// newArray[1] = 'ewrewrewr'
+// console.log(newArray);
+// console.log(oldArray);
+// function log (a,b,c) {
+//     console.log(a);
+//     console.log(b);
+//     console.log(c);
+// }
+// const num = [2, 5, 'fdfdf']
+// log(...num)
+
+// let a = 5,
+//     b = a;
+
+// b = b + 5;
+// console.log(a, b);
+// const obj = {
+//     a: 5,
+//     b: 1
+// // };
+// function copy (mainObj) {
+//     let objCopy = {};
+//     for (const key in mainObj) {
+//         objCopy[key] = mainObj[key];
+//     }
+//     return objCopy
+// }
+// const numbers = {
+//     a: 2,
+//     b: 5,
+//     c: {
+//         x:7,
+//         y:4
+//     }
+// }
+// const add = {
+//     d: 17,
+//     e: 20
+// }
+// const clone = Object.assign({}, add);
+// clone.d = 1000;
+// console.log(add);
+// console.log(clone);
+// const newNumbers = copy(numbers)
+// newNumbers.a = 10
+// newNumbers.c.x = 200;
+// console.log(numbers);
+// console.log(newNumbers);
+// const copy = obj;
+// copy.a = 10
+// console.log(copy, obj);
+
+// const arr = [7, 12, 3, 4, 25];
+// console.log(arr.sort((a,b) => a-b));
+
+// arr.forEach(function(item, index, array) {
+//     console.log(`${index}: ${item} внутри массива ${array}`);
+// })
+// arr[20] = 0
+// console.log(arr);
+// arr.pop()
+// arr.push(100)
+
+// for (let i = 0; i < arr.length; i++) {
+//     console.log(arr[i]);
+    
+// }
+// for (const value of arr) {
+//     console.log(value);
+// }
+// const str = prompt('', '');
+// const products = str.split(', ')
+// products.sort()
+// console.log(products.join('*'))
+// const options = {
+//     name: 'test',
+//     width: 1024,
+//     height: 1024,
+//     colors: {
+//         border: 'black',
+//         bg: 'red'
+//     },
+//     makeTest() {
+//         console.log('Test')
+//     }
+// }
+// console.log(Object.keys(options).length);
+// options.makeTest()
+
+// const {border, bg} = options.colors;
+// console.log(border, bg);
+
+// for (const key in options) {
+//     if (typeof(options[key]) === 'object') {
+//         for (const i in options[key]) {
+//             console.log(`Свойство ${i} имеет значение ${options[key][i]}`)
+//         }
+//     } else {
+//         console.log(`Свойство ${key} имеет значение ${options[key]}`)
+
+//     }
+// }
+
+// function learnJS(lang, callback) {
+//     console.log(`Я учу ${lang}`);
+//     callback()
+// }
+// learnJS('JS', function () {
+//     console.log('callback')
+// })
 // const str = 'test very hard';
 // const arr = [1, 2, 3]
 // const num = '12.2px'
@@ -49,70 +181,73 @@
 
 
 
-let numberOfFilms; 
-function start() {
-    numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
 
-    while (numberOfFilms == '' || numberOfFilms === null || Number.isNaN(numberOfFilms)) {
-        numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
-        console.log(numberOfFilms)
-    }
-}
-// start()
 
 const personalMovieDB = {
-    count: numberOfFilms ,
+    count: 0,
     movies: {},
     acters: {},
     genres: [],
-    privat: false    
-}
+    privat: false,
+    start() {
+        let numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
 
-function rememberMyFilms () {
-    for (let i = 0; i < 2; i++) {
-        let answerMovie;
-        let answerRate;
-        do {
-            answerMovie = prompt('Один из последних просмотренных фильмов?', '');
-            answerRate = +prompt('На сколько оцените его?', '');
-
-        } while (answerMovie.length === 0 ||
-        answerMovie.length > 50 ||
-        answerMovie === null ||
-            answerRate === null);
-        personalMovieDB.movies[answerMovie] = answerRate;
-    }
-}
-
-// rememberMyFilms()
-
-
-function detectedPersonalLevel() {
-    if (personalMovieDB.count < 10) {
-        alert("Просмотрено довольно мало фильмов")
-    } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
-        alert("Вы классический зритель")
-    } else if (personalMovieDB.count >= 30) {
-        alert("Вы киноман")
-    } else {
-        alert("error!")
-    }
-}
-
-// detectedPersonalLevel()
-
-function showMyDB (hidden) {
-        if(!hidden) {
-            return personalMovieDB
+        while (numberOfFilms == '' || numberOfFilms === null || Number.isNaN(numberOfFilms)) {
+            numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
         }
-}
-showMyDB(personalMovieDB.privat)
+        this.count = numberOfFilms
+    },
+    rememberMyFilms () {
+        for (let i = 0; i < 2; i++) {
+            let answerMovie;
+            let answerRate;
+            do {
+                answerMovie = prompt('Один из последних просмотренных фильмов?', '');
+                answerRate = +prompt('На сколько оцените его?', '');
 
-function writeYourGenres() {
-    for (let i = 0; i < 3; i++) {
-        let answerGenres = prompt(`Ваш любимый жанр номер ${i+ 1}`, '')
-        personalMovieDB.genres.push(answerGenres)
+            } while (answerMovie.length === 0 ||
+            answerMovie.length > 50 ||
+            answerMovie === null ||
+                answerRate === null);
+            this.movies[answerMovie] = answerRate;
+        }
+    },
+    detectedPersonalLevel() {
+        if (this.count < 10) {
+            alert("Просмотрено довольно мало фильмов")
+        } else if (this.count >= 10 && this.count < 30) {
+            alert("Вы классический зритель")
+        } else if (this.count >= 30) {
+            alert("Вы киноман")
+        } else {
+            alert("error!")
+        }
+    },
+    
+    showMyDB(hidden) {
+        if (!hidden) {
+            console.log(this)
+        }
+    },
+    writeYourGenres() {
+        for (let i = 0; i < 3; i++) {
+            let answerGenres;
+            do {
+                answerGenres = prompt(`Ваш любимый жанр номер ${i + 1}`, '')
+            } while (answerGenres === '' || answerGenres === null);
+            this.genres.push(answerGenres)
+        }
+        this.genres.forEach((item ,index) => {
+            console.log(`Любимый жанр #${index + 1} - это ${item}`);
+        })
+    },
+    toggleVisibleMyDB() {
+        this.privat = !this.privat
     }
+    
+        
 }
-writeYourGenres()
-console.log(personalMovieDB.genres)
+// personalMovieDB.writeYourGenres()
+
+
+
