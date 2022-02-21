@@ -1,5 +1,58 @@
 'use strict';
 
+// let x = 5;
+// alert(++x)
+
+// console.log([] + false - null + true);
+// let y = 1
+// let x = y = 2
+// console.log(x);
+// console.log(([] + 1 + 2));
+
+//toString
+// И запинается на лжи
+//ИЛИ запинатеся на правде
+//1
+// console.log(typeof String(null));
+// console.log(String(4));
+//2
+// console.log(typeof(5 + ''));
+// const num = 5;
+// console.log('https://vk.com/catalog/'+ num);
+
+// const fontSize = 26 + 'px';
+
+//toNumber
+
+//1
+// console.log(typeof(Number('4')));
+// //2
+// console.log(typeof(+('4')));
+// //3
+// console.log(typeof(parseInt("14px", 10)));
+
+// let answer = +prompt('hello', '')
+
+
+// to bollean
+
+//1
+// 0,false, '', null, undefined, NaN
+// let switcher = null;
+// if(switcher) {
+//     console.log('working');
+// }
+// switcher = 1;
+// if (switcher) {
+//     console.log('working');
+// }
+
+//2
+// console.log(typeof(Boolean('4')));
+
+//3
+// console.log(typeof(!!'4444'));
+
 
 // const arr = [1, 2, 3];
 // console.dir(arr.__proto__)
