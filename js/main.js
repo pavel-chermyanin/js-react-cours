@@ -1,5 +1,175 @@
 'use strict';
 
+const inputRub = document.querySelector('#inputRub'),
+      inputUsd = document.querySelector('#inputUsd');
+
+inputRub.addEventListener('input', () => {
+    const request = new XMLHttpRequest();
+
+    request.open('GET', 'js/current.json');
+    request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+    request.send();
+
+    request.addEventListener('load', () => {
+        if (request.status === 200) {
+            console.log(request.response);
+            const data = JSON.parse(request.response);
+            inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2);
+        } else {
+            inputUsd.value = 'Что-то пошло не так';
+        }
+    })
+    // status
+    // statusText
+    // response
+    // readyState
+
+
+});      
+
+
+// const person = {
+//     name: 'Alex',
+//     tel: '+7899999999',
+//     parents: {
+//         name: 'Olga'
+//     }
+// };
+
+// const clone = JSON.parse(JSON.stringify(person));
+// clone.parents.name = 'Ann';
+// console.log(person);
+// console.log(clone);
+
+
+// const log = function(a, b, ...rest) {
+//     console.log(a, b, rest);
+// }
+
+// log('basic', 'rest', 'operator', 'usage');
+
+// function calcOrDouble(number, basis=2) {
+//     console.log(number * basis);
+// }
+// calcOrDouble(4)
+
+// class Rectangle {
+//     constructor(height, width) {
+//         this.height = height;
+//         this.width = width;
+//     }
+
+//     calcArea() {
+//         return this.height * this.width;
+//     }
+// }
+
+// class ColoredRectangleWithText extends Rectangle{
+//     constructor(height, width,text, bgColor) {
+//         super(height, width);
+//         this.text = text;
+//         this.bgColor = bgColor;
+//     }
+
+//     showMyProps() {
+//         console.log(`Текст ${this.text}, цвет ${this.bgColor}`);
+//     }
+// }
+// const div = new ColoredRectangleWithText(25, 25 , 'hello', 'red');
+// div.showMyProps();
+// console.log(div.calcArea());
+
+// const square = new Rectangle(10, 10);
+// console.log(square.calcArea());
+
+
+
+// function showThis(a, b) {
+// console.log(this);
+
+//     function sum () {
+// console.log(this);
+//         return a + b
+//     }
+// console.log(sum());
+// }
+
+// showThis(4, 5)
+
+
+// const obj = {
+//     a: 20,
+//     b: 15,
+//     sum: function() {
+//         function shout() {
+// console.log(this);
+
+//         }
+//         shout()
+//     }
+// }
+// obj.sum()
+
+
+// function User(name, id) {
+//     this.name = name,
+//     this.id = id,
+//     this.human = true
+// }
+// let pavel = new User('pavel', 31);
+
+// function sayName(surname) {
+//     console.log(this);
+//     console.log(this.name + surname);
+// }
+
+// const user = {
+//     name: 'pavel'
+// }
+
+// sayName.call(user, 'che')
+// sayName.apply(user, ['che'])
+
+// function count(num) {
+//     return this * num
+// }
+
+// const double = count.bind(2)
+// console.log(double(3));
+
+// const btn = document.querySelector('button');
+
+// btn.addEventListener('click', function() {
+//     this.style.backgroundColor = 'red'
+//     console.log(this);
+// })
+
+// const obj = {
+//     num: 5,
+//     sayNumber: function() {
+//         const say = () => {
+//             console.log(this);
+//         }
+//         say()
+//     }
+// }
+// obj.sayNumber();
+
+// const double = (a) => a * 2;
+
+//1) Обычная функция this = window, но если use strict - undefined
+
+//2) Контекст у методов объекта - сам объект
+
+//3) This в конструкторах и классах - это новый экземпляр объекта
+
+//4) Ручная привязка this - call, apply, bind
+
+
+
+
+
+
 // const btn = document.querySelector('.btn');
 // let timerId,
 //     i = 0;
@@ -178,7 +348,7 @@
 
 // for (let i = 0; i < arr.length; i++) {
 //     console.log(arr[i]);
-    
+
 // }
 // for (const value of arr) {
 //     console.log(value);
@@ -255,7 +425,7 @@
 //         continue
 //     }
 //     console.log(i)
-    
+
 // }
 // while (num < 55) {
 //     console.log(num);
@@ -287,7 +457,7 @@ const personalMovieDB = {
         }
         this.count = numberOfFilms
     },
-    rememberMyFilms () {
+    rememberMyFilms() {
         for (let i = 0; i < 2; i++) {
             let answerMovie;
             let answerRate;
@@ -313,7 +483,7 @@ const personalMovieDB = {
             alert("error!")
         }
     },
-    
+
     showMyDB(hidden) {
         if (!hidden) {
             console.log(this)
@@ -327,15 +497,15 @@ const personalMovieDB = {
             } while (answerGenres === '' || answerGenres === null);
             this.genres.push(answerGenres)
         }
-        this.genres.forEach((item ,index) => {
+        this.genres.forEach((item, index) => {
             console.log(`Любимый жанр #${index + 1} - это ${item}`);
         })
     },
     toggleVisibleMyDB() {
         this.privat = !this.privat
     }
-    
-        
+
+
 }
 // personalMovieDB.writeYourGenres()
 
