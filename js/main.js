@@ -1,31 +1,146 @@
 'use strict';
 
-const inputRub = document.querySelector('#inputRub'),
-      inputUsd = document.querySelector('#inputUsd');
 
-inputRub.addEventListener('input', () => {
-    const request = new XMLHttpRequest();
+// reduce
 
-    request.open('GET', 'js/current.json');
-    request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-    request.send();
+// const arr = [4, 5, 1];
+// const result = arr.reduce((accum, item) => accum + item);
+// console.log(result);
+// const arr = ['apple', 'pear', 'mango'];
+// const result = arr.reduce((accum, item) => `${accum}, ${item}`, 3);
+// console.log(result);
+const obj = {
+    pavel: 'persone',
+    ann: 'persone',
+    dog: 'animal',
+    cat: 'animal'
+}
 
-    request.addEventListener('load', () => {
-        if (request.status === 200) {
-            console.log(request.response);
-            const data = JSON.parse(request.response);
-            inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2);
-        } else {
-            inputUsd.value = 'Что-то пошло не так';
-        }
-    })
-    // status
-    // statusText
-    // response
-    // readyState
+const newArr = Object.entries(obj)
+    .filter(item => item[1] === 'persone')
+    .map(item => item[0]);
+console.log(newArr);
 
 
-});      
+
+// every/ some
+
+// const some = [4, 9, 1];
+// console.log(some.some(item => typeof(item) === 'number'));
+// console.log(some.every(item => typeof(item) === 'number'));
+
+
+
+
+// map
+
+// const answers = ['paVel', 'ANNA', 'HeLLo'];
+
+// const result = answers.map(item => item.toLowerCase());
+// console.log(result);
+
+
+//filter
+
+
+// const names = ['pavel', 'igor', 'anna', 'bob'];
+
+// const shortNames = names.filter(function(name) {
+//     return name.length < 4;
+// });
+// console.log(shortNames);
+
+// const test = time => {
+//     return new Promise(resolve => {
+//         setTimeout(() => resolve(), time);
+//     })
+// };
+// test(1000).then(() => console.log('1000 ms'))
+// test(2000).then(() => console.log('2000 ms'))
+
+// Promise.all([test(1000), test(2000)]).then(() => {
+//     console.log('all');
+// });
+
+// Promise.race([test(1000), test(2000)]).then(() => {
+//     console.log('all');
+// });
+
+
+
+
+
+
+
+// console.log('Запрос данных...');
+
+// const req = new Promise(function(resolve, reject) {
+//     setTimeout(() => {
+//         console.log('Подготовка данных...');
+
+//         const product = {
+//             name: 'TV',
+//             price: 2000
+//         }
+
+//         resolve(product)
+//     }, 2000);
+// })
+
+// req.then((product) => {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             product.status = 'order';
+//             resolve(product);
+//         }, 2000);
+//     });
+// }).then((data) => {
+//     data.modify = true;
+//     return data;
+// }).then((data) => {
+//     console.log(data)
+// }).catch(() => {
+//     console.error('Произошла ошибка')
+// }).finally(() => {
+//     console.log('finally');
+// });
+
+
+
+
+
+
+
+
+
+
+// const inputRub = document.querySelector('#inputRub'),
+//       inputUsd = document.querySelector('#inputUsd');
+
+// inputRub.addEventListener('input', () => {
+//     const request = new XMLHttpRequest();
+
+//     request.open('GET', 'js/current.json');
+//     request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+//     request.send();
+
+//     // readystatechange   readyState=1
+//     request.addEventListener('load', () => {
+//         if (request.status === 200) {
+//             console.log(request.response);
+//             const data = JSON.parse(request.response);
+//             inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2);
+//         } else {
+//             inputUsd.value = 'Что-то пошло не так';
+//         }
+//     })
+//     // status
+//     // statusText
+//     // response
+//     // readyState
+
+
+// });      
 
 
 // const person = {
