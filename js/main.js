@@ -9,17 +9,17 @@
 // const arr = ['apple', 'pear', 'mango'];
 // const result = arr.reduce((accum, item) => `${accum}, ${item}`, 3);
 // console.log(result);
-const obj = {
-    pavel: 'persone',
-    ann: 'persone',
-    dog: 'animal',
-    cat: 'animal'
-}
+// const obj = {
+//     pavel: 'persone',
+//     ann: 'persone',
+//     dog: 'animal',
+//     cat: 'animal'
+// }
 
-const newArr = Object.entries(obj)
-    .filter(item => item[1] === 'persone')
-    .map(item => item[0]);
-console.log(newArr);
+// const newArr = Object.entries(obj)
+//     .filter(item => item[1] === 'persone')
+//     .map(item => item[0]);
+// console.log(newArr);
 
 
 
