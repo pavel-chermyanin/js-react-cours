@@ -1,37 +1,86 @@
 'use strict';
 
 
-    // function showSlides(n) {
-    //     if (n > slides.length) {
-    //         slideIndex = 1;
-    //     }
-    //     if(n < 1) {
-    //         slideIndex = slides.length
-    //     }
+// const checkbox = document.querySelector('#checkbox'),
+//       form = document.querySelector('form'),
+//       change = document.querySelector('#color');
 
-    //     slides.forEach(item => item.style.display = 'none');
+// if (localStorage.getItem('isChecked')) {
+//     checkbox.checked = true;
+// }   
 
-    //     slides[slideIndex - 1].style.display = 'block';
+// if (localStorage.getItem('bg') === 'changed') {
+//     form.style.backgroundColor = 'red';
+// }      
 
-    //     if (slides.length < 10) {
-    //         current.textContent = `0${slideIndex}`;
-    //     } else {
-    //         current.textContent = slideIndex;
-    //     }
-    // }
+// checkbox.addEventListener('change', () => {
+//     if (localStorage.getItem('isChecked')) {
+//         checkbox.checked = false;
+//         localStorage.removeItem('isChecked')
+//     } else {
+//         checkbox.checked = true;
+//         localStorage.setItem('isChecked', true)
+//     }
+// })
 
-    // function plusSlides(n) {
-    //     showSlides(slideIndex += n);
-    // }
+// change.addEventListener('click', () => {
+//     if (localStorage.getItem('bg') === 'changed') {
+//         localStorage.removeItem('bg');
+//         form.style.backgroundColor = '#fff';
+//     } else {
+//         localStorage.setItem('bg', 'changed');
+//         form.style.backgroundColor = 'red';
+//     }
+// })
 
-    // prev.addEventListener('click', () => {
-    //     plusSlides(-1);
-    // })
-    // next.addEventListener('click', () => {
-    //     plusSlides(1);
-    // })
+
+// const person = {
+//     name: 'alex',
+//     age: 25
+// };
+// const serializePerson = JSON.stringify(person);
+// localStorage.setItem('alex', serializePerson);
+// console.log(JSON.parse(localStorage.getItem('alex')));
 
 
+//localStorage.setItem('number', 5); //установит пару(ключ-значение) в хранилище
+
+// localStorage.removeItem('number'); //удалит item
+//localStorage.clear();//очистит храилище
+
+//console.log(localStorage.getItem('number'));//поличть item
+// ======================================================================
+// function showSlides(n) {
+//     if (n > slides.length) {
+//         slideIndex = 1;
+//     }
+//     if(n < 1) {
+//         slideIndex = slides.length
+//     }
+
+//     slides.forEach(item => item.style.display = 'none');
+
+//     slides[slideIndex - 1].style.display = 'block';
+
+//     if (slides.length < 10) {
+//         current.textContent = `0${slideIndex}`;
+//     } else {
+//         current.textContent = slideIndex;
+//     }
+// }
+
+// function plusSlides(n) {
+//     showSlides(slideIndex += n);
+// }
+
+// prev.addEventListener('click', () => {
+//     plusSlides(-1);
+// })
+// next.addEventListener('click', () => {
+//     plusSlides(1);
+// })
+
+// ======================================================================
 // reduce
 
 // const arr = [4, 5, 1];
@@ -80,7 +129,7 @@
 //     return name.length < 4;
 // });
 // console.log(shortNames);
-
+// ======================================================================
 // const test = time => {
 //     return new Promise(resolve => {
 //         setTimeout(() => resolve(), time);
@@ -98,7 +147,7 @@
 // });
 
 
-
+// ======================================================================
 
 
 
@@ -139,7 +188,7 @@
 
 
 
-
+// ======================================================================
 
 
 
@@ -171,9 +220,9 @@
 //     // readyState
 
 
-// });      
+// });
 
-
+// ======================================================================
 // const person = {
 //     name: 'Alex',
 //     tel: '+7899999999',
@@ -187,18 +236,18 @@
 // console.log(person);
 // console.log(clone);
 
-
+// ======================================================================
 // const log = function(a, b, ...rest) {
 //     console.log(a, b, rest);
 // }
 
 // log('basic', 'rest', 'operator', 'usage');
-
+// ======================================================================
 // function calcOrDouble(number, basis=2) {
 //     console.log(number * basis);
 // }
 // calcOrDouble(4)
-
+// ======================================================================
 // class Rectangle {
 //     constructor(height, width) {
 //         this.height = height;
@@ -228,7 +277,7 @@
 // const square = new Rectangle(10, 10);
 // console.log(square.calcArea());
 
-
+// ======================================================================
 
 // function showThis(a, b) {
 // console.log(this);
@@ -282,7 +331,7 @@
 
 // const double = count.bind(2)
 // console.log(double(3));
-
+// ======================================================================
 // const btn = document.querySelector('button');
 
 // btn.addEventListener('click', function() {
